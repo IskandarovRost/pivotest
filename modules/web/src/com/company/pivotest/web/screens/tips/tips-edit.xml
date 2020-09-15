@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.pivotest.web.screens.tips">
+    <data>
+        <instance id="tipsDc"
+                  class="com.company.pivotest.entity.Tips"
+                  view="_local">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="tipsDc">
+            <column width="250px">
+                <textField id="rowField" property="row"/>
+                <textField id="totalBillField" property="totalBill"/>
+                <textField id="tipField" property="tip"/>
+                <lookupField id="sexField" property="sex"/>
+                <lookupField id="smokerField" property="smoker"/>
+                <lookupField id="dayField" property="day"/>
+                <lookupField id="timeField" property="time"/>
+                <textField id="sizeField" property="size"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

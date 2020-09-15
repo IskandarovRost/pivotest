@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-pivotest" insertBefore="administration">
+        <item screen="pivotest_Tips.browse"/>
+        <item screen="pivotest_TipsPivotScreen"/>
+    </menu>
+</menu-config>

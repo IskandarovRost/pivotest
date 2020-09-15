@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd"
+        caption="msg://caption"
+        messagesPack="com.company.pivotest.web.screens"
+>
+    <data>
+        <collection id="tipsDc" class="com.company.pivotest.entity.Tips" view="_local">
+            <loader id="tipsesDl">
+                <query>
+                    <![CDATA[select e from pivotest_Tips e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout>
+        <chart:pivotTable id="tipsCustomAggregatorPivotTable"
+                          dataContainer="tipsDc">
+            <chart:properties>
+                <chart:property name="row"/>
+                <chart:property name="totalBill"/>
+                <chart:property name="tip"/>
+                <chart:property name="sex"/>
+                <chart:property name="smoker"/>
+                <chart:property name="day"/>
+                <chart:property name="time"/>
+                <chart:property name="size"/>
+            </chart:properties>
+            <chart:aggregation mode="SUM_OVER_SUM" custom="true">
+                <chart:property name="tip"/>
+                <chart:property name="totalBill"/>
+            </chart:aggregation>
+            <chart:rows>
+                <chart:row value="sex"/>
+                <chart:row value="Smokes"/>
+            </chart:rows>
+            <chart:columns>
+                <chart:column value="day"/>
+                <chart:column value="time"/>
+            </chart:columns>
+        </chart:pivotTable>
+    </layout>
+</window>
